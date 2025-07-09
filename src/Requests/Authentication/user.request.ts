@@ -39,3 +39,29 @@ export class RegisterRequest {
         }
     }
 }
+
+
+export class LoginRequest{
+    email:string;
+    password:string
+    constructor(body:any){
+        this.email = body.email;
+        this.password = body.password;
+    }
+
+    public isValid():{valid:boolean, errors:string[]}{
+        const errors:string[]= [];
+
+        if(!this.email || typeof this.email !=='string' || !this.email.includes('@')){
+            errors.push("Valid email required");
+        }
+        if(!this.password){
+            errors.push("Password Required");
+        }
+
+        return{
+            valid: errors.length ===0,
+            errors
+        }
+    }
+}
