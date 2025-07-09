@@ -1,13 +1,12 @@
-import {User} from '../../Models/users';
-import {IUser} from '../../Models/users';
-
+import {User, IUser} from '../../Models/users';
 import bcrypt from "bcrypt";
 
 export const registerUser = async (
     name: string,
     username: string,
+    email: string,
     password: string,
-    email: string
+    
 ): Promise<IUser> => {
     // check if user already exist or not 
     try{
