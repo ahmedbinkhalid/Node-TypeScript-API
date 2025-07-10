@@ -39,5 +39,22 @@ export const getStudentByUser = async(
 
 // Update Studet 
 
+export const updateStudent = async(
+    studentId: string,
+    userId: string,
+    update: Partial<IStudent>
+): Promise<IStudent | null> =>{
+    const updated = await Student.findOneAndUpdate({
+        _id: studentId, createdBy: userId
+    },
+    {new: true}
+    );
+    return updated;
+};
+
+// Delete Student
+
+
+
 
 
