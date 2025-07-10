@@ -38,4 +38,4 @@ const StudentSchema: Schema = new Schema({
 
 StudentSchema.index({createdBy: 1, rollno:1}, {unique:true});
 
-export const student = mongoose.model<IStudent>('Student', StudentSchema);
+export const Student = mongoose.model<IStudent>('Student', StudentSchema);
