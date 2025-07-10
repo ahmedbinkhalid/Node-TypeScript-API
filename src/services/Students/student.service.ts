@@ -54,6 +54,12 @@ export const updateStudent = async(
 
 // Delete Student
 
+export const deleteStudent = async (
+    userId: string,
+    studentId: string
+): Promise<void> =>{
+    await Student.findOneAndDelete({_id: studentId, createdBy: userId});
+};
 
 
 
