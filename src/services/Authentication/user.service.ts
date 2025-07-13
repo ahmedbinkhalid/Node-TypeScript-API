@@ -62,5 +62,5 @@ export const LoginUser = async(
             expiresIn: '1h'
         }
     )
-    return {token};
+    return {token, userid};
 }
