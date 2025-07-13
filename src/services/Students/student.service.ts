@@ -37,21 +37,19 @@ export const getStudentByUser = async(
     return await Student.find({createdBy: userId}).sort({rollno: 1});
 }
 
-// Update Studet 
-
-export const updateStudent = async(
-    studentId: string,
-    userId: string,
-    update: Partial<IStudent>
-): Promise<IStudent | null> =>{
-    const updated = await Student.findOneAndUpdate({
-        _id: studentId, createdBy: userId
-    },
-    {new: true}
-    );
-    return updated;
+// Update a student
+export const updateStudent = async (
+  userId: string,
+  studentId: string,
+  update: Partial<IStudent>
+): Promise<IStudent | null> => {
+  const updated = await Student.findOneAndUpdate(
+    { _id: studentId, createdBy: userId },
+    update,
+    { new: true }
+  );
+  return updated;
 };
-
 // Delete Student
 
 export const deleteStudent = async (
